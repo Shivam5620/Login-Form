@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login_Form</title>
+    <style>
+        body {
+            background-color: #3985f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #Form-container {
+            background-color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 0 0 10px 0;
+        }
+
+        input {
+            width: 200px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        input[type="submit"] {
+            width: 222px;
+            background-color: #3985f5;
+            border: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            margin: 0;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Form-container">
+        <h2>Login</h2>
+        <form action="" onsubmit="return validateform()">
+            <input type="text" placeholder="username" id="username"><br>
+            <p id="userchack" class="error"></p><br>
+            <input type="password" placeholder="Password" id="pwd"><br>
+            <p id="passchack" class="error"></p><br>
+            <input type="submit">
+        </form>
+    </div>
+
+
+    <script>
+
+        let username = document.getElementById('username');
+        let pwd = document.getElementById('pwd');
+        let flag = 1;
+
+        function validateform() {
+            if (username.value == '') {
+                document.getElementById('userchack').innerHTML = "username is empty";
+                flag = 0;
+            }
+            else if (username.value.length < 3) {
+                document.getElementById('userchack').innerHTML = "username required is min 3charecter";
+                flag = 0;
+
+            }
+            else {
+                document.getElementById('userchack').innerHTML = "Congrats✔";
+                flag = 1;
+            }
+            if (pwd.value == "") {
+                document.getElementById('passchack').innerHTML = "Password is empty";
+                flag = 0;
+
+            }
+            else if (pwd.value.length < 6) {
+                document.getElementById('passchack').innerHTML = "password required is minimum 6 charecter";
+                flag = 0;
+
+            }
+
+            else {
+                document.getElementById('passchack').innerHTML = "Congrats✔ ";
+                flag = 1;
+            }
+            if (flag) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
